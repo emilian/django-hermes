@@ -160,9 +160,6 @@ class Post(TimestampedModel):
     @models.permalink
     def get_absolute_url(self):
         return ('hermes_post_detail', (), {
-            'year': self.created_on.year,
-            'month': self.created_on.strftime('%m'),
-            'day': self.created_on.strftime('%d'),
             'slug': self.slug,
         })
 
