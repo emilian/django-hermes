@@ -9,7 +9,7 @@ class PostListView(ListView):
     template_name = 'hermes/post_list.html'
     
     def get_queryset(self):
-        return self.model.objects.order_by('-created_on')
+        return self.model.objects.order_by('created_on')
 
 
 class CategoryPostListView(PostListView):
