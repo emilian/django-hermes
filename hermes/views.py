@@ -42,5 +42,7 @@ class CategoryPostDetail(DetailView):
     category_slug = None
     model = Post
     context_object_name = 'post'
-    queryset = Post.objects.filter(category__slug=category_slug)
     template_name = 'hermes/post_detail.html'
+    
+    def get_queryset(self):
+        return self.model.objects.filter(category__slug=self.category_slug)
