@@ -16,7 +16,11 @@ class CategoryPostListView(PostListView):
     slug = None
     
     def get_queryset(self):
-        category_slug = self.kwargs.get('slug', '')
+        category_slug = self.kwargs.get('slug', None)
+        
+        if category_slug is None:
+            category_slug = self.slug
+            
         return self.model.objects.in_category(category_slug)
 
 
