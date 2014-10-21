@@ -37,3 +37,9 @@ class PostDetail(DetailView):
     context_object_name = 'post'
     model = Post
     template_name = "hermes/post_detail.html"
+
+class CategoryPostDetail(DetailView):
+    category_slug = None
+    context_object_name = 'post'
+    queryset = Post.objects.filter(category__slug=category_slug)
+    template_name = 'hermes/post_detail.html'
